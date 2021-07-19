@@ -1,5 +1,0 @@
-[Tuners]14147/07/10 - 714:00:00.606	[31merror[0m	/Users/arbullzhang/go/src/gozero-vue-admins/service/user/api/user.go:42
-[Tuners]14147/07/10 - 714:00:00.571	[31merror[0m	/Users/arbullzhang/go/src/gozero-vue-admins/service/user/api/user.go:42	ssssss
-[Tuners]14147/07/11 - 714:00:00.731	[31merror[0m	/Users/arbullzhang/go/src/gozero-vue-admins/service/user/api/user.go:49	test
-[Tuners]14147/07/11 - 714:00:00.499	[31merror[0m	/Users/arbullzhang/go/src/gozero-vue-admins/service/user/api/user.go:49	test
-[Tuners]14147/07/17 - 714:00:00.266	[31merror[0m	/Users/arbullzhang/go/src/gozero-vue-admins/service/user/api/internal/logic/loginlogic.go:43	登陆失败! 用户名不存在或者密码错误!	{"err": "sql: Scan error on column index 1, name \"created_at\": unsupported Scan, storing driver.Value type []uint8 into type *time.Time"}
