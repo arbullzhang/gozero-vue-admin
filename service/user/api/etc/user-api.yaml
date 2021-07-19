@@ -1,0 +1,41 @@
+Name: user-api
+Host: 0.0.0.0
+Port: 8888
+System:
+  DBType: mysql
+  UseMultipoint: false
+Captcha:
+  KeyLong: 6
+  ImgWidth: 240
+  ImgHeight: 80
+Mysql:
+  DataSource: root:@tcp(localhost:3306)/gozero?charset=utf8mb4&parseTime=True&loc=Local
+  MaxIdleConns: 0
+  MaxOpenConns: 0
+  LogMode: false
+  LogZap: ""
+CacheRedis:
+  - Host: localhost:6379
+Auth:
+  AccessSecret: gozero-vue-adminsAccessSecrect
+  AccessExpire: 604800
+  BufferTime: 86400
+Casbin:
+  ModelPath: './service/user/api/etc/rbac_model.conf'
+Zap:
+  Level: info
+  Format: console
+  Prefix: '[Tuners]'
+  Director: log
+  LinkName: latestLog
+  ShowLine: true
+  EncodeLevel: LowercaseColorLevelEncoder
+  StacktraceKey: stacktrace
+  LogInConsole: true
+ClearDBTimer:
+  Start: true
+  Spec: '@daily'
+  Detail:
+    - TableName: sys_operation_records
+      CompareField: create_at
+      Interval: 2160h

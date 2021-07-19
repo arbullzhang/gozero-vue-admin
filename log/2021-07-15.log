@@ -1,0 +1,1 @@
+[Tuners]15157/07/17 - 715:00:00.315	[31merror[0m	/Users/arbullzhang/go/src/gozero-vue-admins/service/user/api/user.go:60	redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}

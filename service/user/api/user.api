@@ -1,0 +1,161 @@
+type (
+	CaptchaResp {
+		CaptchaId string `json:"captchaId"`
+		PicPath   string `json:"picPath"`
+	}
+)
+
+@server (
+	group: user
+)
+service user-api {
+	@handler captcha
+	post /base/captcha
+	
+	@handler login
+	post /base/login
+}
+
+@server (
+	middleware: Jwt, Casbin, OperationRecord
+	group: user
+)
+service user-api {
+	@handler register
+	post /user/register
+	
+	@handler changePassword
+	post /user/changePassword
+	
+	@handler getUserList
+	post /user/getUserList
+	
+	@handler setUserAuthority
+	post /user/setUserAuthority
+	
+	@handler deleteUser
+	delete /user/deleteUser
+	
+	@handler setUserInfo
+	put /user/setUserInfo
+	
+	@handler jsonInBlacklist
+	post /jwt/jsonInBlacklist
+}
+
+@server (
+	middleware: Jwt, Casbin, OperationRecord
+	group: menu
+)
+service user-api {
+	@handler getMenu
+	post /menu/getMenu
+	
+	@handler getMenuList
+	post /menu/getMenuList
+	
+	@handler addMenuAuthority
+	post /menu/addMenuAuthority
+	
+	@handler getMenuAuthority
+	post /menu/getMenuAuthority
+	
+	@handler getBaseMenuTree
+	post /menu/getBaseMenuTree
+	
+	@handler addBaseMenu
+	post /menu/addBaseMenu
+	
+	@handler deleteBaseMenu
+	post /menu/deleteBaseMenu
+	
+	@handler updateBaseMenu
+	post /menu/updateBaseMenu
+	
+	@handler getBaseMenuById
+	post /menu/getBaseMenuById
+}
+
+@server (
+	middleware: Jwt, Casbin, OperationRecord
+	group: authority
+)
+service user-api {
+	@handler createAuthority
+	post /authority/createAuthority
+	
+	@handler deleteAuthority
+	post /authority/deleteAuthority
+	
+	@handler updateAuthority
+	post /authority/updateAuthority
+	
+	@handler copyAuthority
+	post /authority/copyAuthority
+	
+	@handler getAuthorityList
+	post /authority/getAuthorityList
+	
+	@handler setDataAuthority
+	post /authority/setDataAuthority
+}
+
+@server (
+	middleware: Jwt, Casbin, OperationRecord
+	group: casbin
+)
+service user-api {
+	@handler updateCasbin
+	post /casbin/updateCasbin
+	
+	@handler getPolicyPathByAuthorityId
+	post /cash/getPolicyPathByAuthorityId
+}
+
+@server (
+	middleware: Jwt, Casbin, OperationRecord
+	group: operationRecord
+)
+service user-api {
+	@handler createSysOperationRecord
+	post /sysOperationRecord/createSysOperationRecord
+	
+	@handler deleteSysOperationRecord
+	delete /sysOperationRecord/deleteSysOperationRecord
+	
+	@handler deleteSysOperationRecordByIds
+	delete /sysOperationRecord/deleteSysOperationRecordByIds
+	
+	@handler findSysOperationRecord
+	get /sysOperationRecord/findSysOperationRecord
+	
+	@handler getSysOperationRecordList
+	get /sysOperationRecord/getSysOperationRecordList
+}
+
+@server (
+	middleware: Jwt, Casbin, OperationRecord
+	group: api
+)
+service user-api {
+	@handler createApi
+	post /api/createApi
+	
+	@handler deleteApi
+	post /api/deleteApi
+	
+	@handler getApiList
+	post /api/getApiList
+	
+	@handler getApiById
+	post /api/getApiById
+	
+	@handler updateApi
+	post /api/updateApi
+	
+	@handler getAllApis
+	post /api/getAllApis
+	
+	@handler deleteApisByIds
+	delete /api/deleteApisByIds
+}
